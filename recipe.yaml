@@ -1,0 +1,192 @@
+context:
+  name: "ros-jazzy-moveit2-custom"
+  version: "2.14.0" # Update to match your specific branch/tag
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  path: .
+
+build:
+  number: 0
+  script: |
+    # Build everything in the repo, skipping the tests to save time
+    colcon build \
+      --merge-install \
+      --install-base $PREFIX \
+      --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
+    
+    rm -rf build log
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ compiler('c') }}
+    - cmake
+    - make
+    - ninja
+    - pkg-config
+    - colcon-common-extensions
+    - ros-jazzy-ament-cmake
+    - ros-jazzy-ament-cmake-ros
+    - ros-jazzy-eigen3-cmake-module
+  host:
+    # --- System Dependencies ---
+    - assimp
+    - bullet
+    - eigen
+    - fcl
+    - fmt
+    - freeglut
+    - glew
+    - ros-jazzy-osqp-vendor
+    - pybind11
+    - python
+    - qt-main
+    - urdfdom
+    - urdfdom_headers
+
+    # --- External ROS 2 Jazzy Dependencies ---
+    - ros-jazzy-angles
+    - ros-jazzy-class-loader
+    - ros-jazzy-common-interfaces
+    - ros-jazzy-control-msgs
+    - ros-jazzy-controller-manager
+    - ros-jazzy-cv-bridge
+    - ros-jazzy-eigen-stl-containers
+    - ros-jazzy-generate-parameter-library
+    - ros-jazzy-geometric-shapes
+    - ros-jazzy-geometry-msgs
+    - ros-jazzy-image-transport
+    - ros-jazzy-interactive-markers
+    - ros-jazzy-joint-state-broadcaster
+    - ros-jazzy-joint-state-publisher
+    - ros-jazzy-joint-trajectory-controller
+    - ros-jazzy-joy
+    - ros-jazzy-kdl-parser
+    - ros-jazzy-message-filters
+    - ros-jazzy-moveit-msgs
+    - ros-jazzy-moveit-resources-fanuc-description
+    - ros-jazzy-moveit-resources-panda-description
+    - ros-jazzy-moveit-resources-prbt-support
+    - ros-jazzy-object-recognition-msgs
+    - ros-jazzy-octomap
+    - ros-jazzy-octomap-msgs
+    - ros-jazzy-ompl
+    - ros-jazzy-orocos-kdl-vendor
+    - ros-jazzy-pluginlib
+    - ros-jazzy-position-controllers
+    - ros-jazzy-random-numbers
+    - ros-jazzy-rclcpp
+    - ros-jazzy-rclcpp-action
+    - ros-jazzy-rclcpp-components
+    - ros-jazzy-rclpy
+    - ros-jazzy-realtime-tools
+    - ros-jazzy-resource-retriever
+    - ros-jazzy-robot-state-publisher
+    - ros-jazzy-ros2-control
+    - ros-jazzy-rsl
+    - ros-jazzy-ruckig
+    - ros-jazzy-rviz-common
+    - ros-jazzy-rviz-default-plugins
+    - ros-jazzy-rviz-ogre-vendor
+    - ros-jazzy-rviz-rendering
+    - ros-jazzy-rviz2
+    - ros-jazzy-sensor-msgs
+    - ros-jazzy-shape-msgs
+    - ros-jazzy-srdfdom
+    - ros-jazzy-std-msgs
+    - ros-jazzy-std-srvs
+    - ros-jazzy-stomp
+    - ros-jazzy-tf2
+    - ros-jazzy-tf2-eigen
+    - ros-jazzy-tf2-geometry-msgs
+    - ros-jazzy-tf2-kdl
+    - ros-jazzy-tf2-msgs
+    - ros-jazzy-tf2-ros
+    - ros-jazzy-trajectory-msgs
+    - ros-jazzy-urdf
+    - ros-jazzy-visualization-msgs
+    - ros-jazzy-warehouse-ros
+    - ros-jazzy-warehouse-ros-sqlite
+    - ros-jazzy-xacro
+  run:
+    # Copy exactly the same list from host to run
+    - assimp
+    - bullet
+    - eigen
+    - fcl
+    - fmt
+    - freeglut
+    - glew
+    - ros-jazzy-osqp-vendor
+    - pybind11
+    - python
+    - qt-main
+    - urdfdom
+    - urdfdom_headers
+    - ros-jazzy-angles
+    - ros-jazzy-class-loader
+    - ros-jazzy-common-interfaces
+    - ros-jazzy-control-msgs
+    - ros-jazzy-controller-manager
+    - ros-jazzy-cv-bridge
+    - ros-jazzy-eigen-stl-containers
+    - ros-jazzy-generate-parameter-library
+    - ros-jazzy-geometric-shapes
+    - ros-jazzy-geometry-msgs
+    - ros-jazzy-image-transport
+    - ros-jazzy-interactive-markers
+    - ros-jazzy-joint-state-broadcaster
+    - ros-jazzy-joint-state-publisher
+    - ros-jazzy-joint-trajectory-controller
+    - ros-jazzy-joy
+    - ros-jazzy-kdl-parser
+    - ros-jazzy-message-filters
+    - ros-jazzy-moveit-msgs
+    - ros-jazzy-moveit-resources-fanuc-description
+    - ros-jazzy-moveit-resources-panda-description
+    - ros-jazzy-moveit-resources-prbt-support
+    - ros-jazzy-object-recognition-msgs
+    - ros-jazzy-octomap
+    - ros-jazzy-octomap-msgs
+    - ros-jazzy-ompl
+    - ros-jazzy-orocos-kdl-vendor
+    - ros-jazzy-pluginlib
+    - ros-jazzy-position-controllers
+    - ros-jazzy-random-numbers
+    - ros-jazzy-rclcpp
+    - ros-jazzy-rclcpp-action
+    - ros-jazzy-rclcpp-components
+    - ros-jazzy-rclpy
+    - ros-jazzy-realtime-tools
+    - ros-jazzy-resource-retriever
+    - ros-jazzy-robot-state-publisher
+    - ros-jazzy-ros2-control
+    - ros-jazzy-rsl
+    - ros-jazzy-ruckig
+    - ros-jazzy-rviz-common
+    - ros-jazzy-rviz-default-plugins
+    - ros-jazzy-rviz-ogre-vendor
+    - ros-jazzy-rviz-rendering
+    - ros-jazzy-rviz2
+    - ros-jazzy-sensor-msgs
+    - ros-jazzy-shape-msgs
+    - ros-jazzy-srdfdom
+    - ros-jazzy-std-msgs
+    - ros-jazzy-std-srvs
+    - ros-jazzy-stomp
+    - ros-jazzy-tf2
+    - ros-jazzy-tf2-eigen
+    - ros-jazzy-tf2-geometry-msgs
+    - ros-jazzy-tf2-kdl
+    - ros-jazzy-tf2-msgs
+    - ros-jazzy-tf2-ros
+    - ros-jazzy-trajectory-msgs
+    - ros-jazzy-urdf
+    - ros-jazzy-visualization-msgs
+    - ros-jazzy-warehouse-ros
+    - ros-jazzy-warehouse-ros-sqlite
+    - ros-jazzy-xacro
