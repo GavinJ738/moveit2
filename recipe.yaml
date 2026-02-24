@@ -33,6 +33,7 @@ requirements:
     - ros-jazzy-ament-cmake-ros
     - ros-jazzy-eigen3-cmake-module
   host:
+    - ros-jazzy-tf2-eigen-kdl
     # --- System Dependencies ---
     - assimp
     - bullet
@@ -113,6 +114,7 @@ requirements:
     - ros-jazzy-warehouse-ros-sqlite
     - ros-jazzy-xacro
   run:
+    - ros-jazzy-tf2-eigen-kdl
     # Copy exactly the same list from host to run
     - assimp
     - bullet
