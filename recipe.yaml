@@ -1,5 +1,5 @@
 context:
-  name: "ros-jazzy-moveit2-custom"
+  name: "ros-jazzy-moveit2"
   version: "2.14.0" # Update to match your specific branch/tag
 
 package:
