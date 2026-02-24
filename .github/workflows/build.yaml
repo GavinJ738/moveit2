@@ -13,8 +13,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup ccache
+        uses: actions/cache@v4
+        with:
+          path: .ccache
+          key: ccache-moveit2-${{ github.sha }}
+          restore-keys: |
+            ccache-moveit2-
+
       - name: Build Conda Package
         uses: prefix-dev/rattler-build-action@v0.2.34
+        env:
+          CCACHE_DIR: ${{ github.workspace }}/.ccache
         with:
           recipe-path: recipe.yaml
           # Force the output folder to be built outside the source code tree

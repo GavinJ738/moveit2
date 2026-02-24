@@ -10,7 +10,9 @@ source:
   path: .
 
 build:
-  number: 0
+  number: 1
+  script_env:
+    - CCACHE_DIR
   script: |
     export CXXFLAGS="${CXXFLAGS} -include cstdint"
     # Build everything in the repo, skipping the tests to save time
