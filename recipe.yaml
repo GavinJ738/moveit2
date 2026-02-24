@@ -39,7 +39,7 @@ requirements:
     - bullet
     - eigen
     - fcl
-    - fmt
+    - fmt <12
     - freeglut
     - glew
     - ros-jazzy-osqp-vendor
@@ -120,7 +120,7 @@ requirements:
     - bullet
     - eigen
     - fcl
-    - fmt
+    - fmt <12
     - freeglut
     - glew
     - ros-jazzy-osqp-vendor
