@@ -76,3 +76,6 @@ _autosummary
 # source dependencies (see moveit2.repos)
 moveit_msgs
 moveit_resources
+# pixi environments
+.pixi/*
+!.pixi/config.toml
