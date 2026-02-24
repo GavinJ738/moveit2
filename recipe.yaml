@@ -12,6 +12,7 @@ source:
 build:
   number: 0
   script: |
+    export CXXFLAGS="${CXXFLAGS} -include cstdint"
     # Build everything in the repo, skipping the tests to save time
     colcon build \
       --merge-install \
