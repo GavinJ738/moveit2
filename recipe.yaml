@@ -46,7 +46,7 @@ requirements:
     - fcl
     - fmt <12
     - freeglut
-    - glew
+    - glew <2.2
     - ros-jazzy-osqp-vendor
     - pybind11
     - python
